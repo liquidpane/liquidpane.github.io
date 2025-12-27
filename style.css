@@ -1,193 +1,149 @@
-/* =========================
-   GLOBAL
-========================= */
-* {
-    font-family: "Arimo", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+:root {
+    --bg-dark: #050505;
+    --bg-mid: #141414;
+    --card-bg: #1A1A1A;
+
+    --accent: #00FFAE;
+    --text-main: #ffffff;
+    --text-muted: #A8A8A8;
+    --text-subtle: #969696;
+
+    --radius-lg: 24px;
+    --radius-md: 18px;
+
+    --transition-fast: 0.25s cubic-bezier(.2, .8, .2, 1);
+    --glow-soft: rgba(0, 255, 174, 0.14);
+    --glow-strong: rgba(0, 255, 174, 0.22);
 }
 
 body {
-    margin: 0;
-    background: radial-gradient(circle at center, #141414, #050505);
+    font-family: "Arimo", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     height: 100vh;
+    background: radial-gradient(circle at center, var(--bg-mid), var(--bg-dark));
 }
 
-/* =========================
-   HERO SECTION
-========================= */
-.hero-section {
+.landing {
     height: 900px;
-    /* Figma frame height */
     position: relative;
 }
 
-.hero {
+.landing-text {
     position: absolute;
     inset: 0;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-
     isolation: isolate;
 }
 
-/* =========================
-   TEXT
-========================= */
 .title {
     font-size: 52.8px;
     font-weight: bold;
     line-height: 1.1;
-    color: white;
+    color: var(--text-main);
     margin-bottom: 6px;
 }
 
 .title span {
     font-size: 60px;
-    color: #00FFAE;
+    color: var(--accent);
 }
 
 .username {
+    margin-top: 12px;
     font-size: 45px;
     font-weight: 100;
-    color: #A8A8A8;
-    margin-top: 12px;
+    color: var(--text-muted);
 }
 
-/* =========================
-   TEXT GLOW
-========================= */
-.text-glow {
+.glow {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.text-glow::before {
+.glow::before {
     content: "";
     position: absolute;
+    top: 50%;
     width: 520px;
     height: 260px;
-    border-radius: 50%;
+    transform: translateY(-50%);
     background: rgba(0, 255, 174, 0.1);
+    border-radius: 50%;
     filter: blur(120px);
     z-index: -1;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
-/* =========================
-   ARROW BUTTON WRAPPER
-========================= */
-.arrow-wrap {
+.arrow-button-holder {
     margin-top: 10px;
     display: flex;
     justify-content: center;
-
-    /* idle float lives here */
     animation: float 3.2s ease-in-out infinite;
 }
 
-/* =========================
-   ARROW BUTTON
-========================= */
-.arrow-btn {
+.arrow-button {
     position: relative;
-    width: 361.21px;
-    height: 100.07px;
-    border-radius: 24.33px;
-    border: none;
-    cursor: pointer;
-    background: #00FFAE;
-
-    /* Figma inset */
-    box-shadow: inset 0 -7px 6.2px rgba(0, 0, 0, 0.25);
-
+    width: 361px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    /* hover transitions */
-    transition:
-        transform 0.25s cubic-bezier(.2, .8, .2, 1),
-        box-shadow 0.25s cubic-bezier(.2, .8, .2, 1);
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    box-shadow: inset 0 -7px 6px rgba(0, 0, 0, 0.25);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-/* =========================
-   BUTTON GLOW LAYER
-========================= */
-.arrow-btn::before {
+.arrow-button img {
+    width: 60px;
+    pointer-events: none;
+}
+
+.arrow-button:hover {
+    transform: scale(1.03);
+}
+
+.arrow-button:active {
+    transform: scale(0.98);
+}
+
+.arrow-button::before {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: inherit;
     z-index: -1;
     pointer-events: none;
-
-    box-shadow: 0 10px 22px rgba(0, 255, 174, 0.18);
+    box-shadow: 0 8px 18px var(--glow-soft);
     animation: glow-pulse 2.8s ease-in-out infinite;
-    transition: box-shadow 0.25s ease;
-}
-
-/* =========================
-   BUTTON STATES
-========================= */
-.arrow-btn:hover {
-    transform: translateY(0px) scale(1.03);
-}
-
-.arrow-btn:active {
-    transform: translateY(0px) scale(0.98);
-}
-
-/* =========================
-   ARROW ICON
-========================= */
-.arrow-btn img {
-    width: 60px;
-    pointer-events: none;
-}
-
-/* =========================
-   ANIMATIONS
-========================= */
-@keyframes glow-pulse {
-    0% {
-        box-shadow: 0 8px 18px rgba(0, 255, 174, 0.14);
-    }
-
-    50% {
-        box-shadow: 0 12px 26px rgba(0, 255, 174, 0.22);
-    }
-
-    100% {
-        box-shadow: 0 8px 18px rgba(0, 255, 174, 0.14);
-    }
 }
 
 @keyframes float {
-    0% {
+    0%, 100% {
         transform: translateY(0);
     }
-
     50% {
         transform: translateY(4px);
     }
+}
 
-    100% {
-        transform: translateY(0);
+@keyframes glow-pulse {
+    0%, 100% {
+        box-shadow: 0 8px 18px var(--glow-soft);
+    }
+    50% {
+        box-shadow: 0 12px 26px var(--glow-strong);
     }
 }
 
-/* =========================
-   PROJECTS SECTION
-========================= */
 .projects {
-    padding-top: 80px;
-    padding-bottom: 160px;
+    padding: 80px 0 160px;
     display: flex;
     justify-content: center;
 }
@@ -196,17 +152,15 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 500px);
     gap: 120px;
-    justify-content: center;
 }
 
 .project-card {
     width: 500px;
     min-height: 400px;
-    background: #1A1A1A;
-    border-radius: 24px;
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
     padding: 18px;
-    color: white;
-
+    color: var(--text-main);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -215,19 +169,33 @@ body {
 }
 
 .project-card.active {
-    box-shadow:
-        0 0 0 3px #00FFAE,
-        0 10px 100px rgba(0, 255, 174, 0.1);
+    box-shadow: 0 0 0 3px var(--accent), 0 10px 100px rgba(0, 255, 174, 0.1);
 }
 
-.project-image {
-    border-radius: 18px;
+.project-image,
+.project-video,
+.video-wrap {
+    border-radius: var(--radius-md);
     overflow: hidden;
     margin-bottom: 18px;
 }
 
 .project-image img {
     width: 100%;
+    display: block;
+}
+
+.project-video,
+.video-wrap {
+    aspect-ratio: 16 / 9;
+    background: #000;
+}
+
+.project-video iframe,
+.video-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
     display: block;
 }
 
@@ -238,21 +206,6 @@ body {
 
 .project-card p {
     font-size: 20px;
-    color: #969696;
     line-height: 1.45;
-}
-
-.project-video {
-    border-radius: 18px;
-    overflow: hidden;
-    margin-bottom: 18px;
-    aspect-ratio: 16 / 9;
-    background: #000;
-}
-
-.project-video iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
+    color: var(--text-subtle);
 }
