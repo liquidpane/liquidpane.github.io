@@ -2,71 +2,80 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LiquidPane Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap&subset=hebrew"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <section class="hero-section">
-        <div class="hero">
-            <div class="text-glow">
-                <h1 class="title">Roblox<br><span>Scripting Services</span></h1>
-                <p class="username">@liquidpane</p>
-            </div>
-
-            <div class="arrow-wrap">
-                <button class="arrow-btn"
-                    onclick="document.querySelector('.projects').scrollIntoView({ behavior: 'smooth' })">
-                    <img src="Arrow.webp" />
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <section class="projects">
-        <div class="projects-grid">
-
-            <!-- ACTIVE / HIGHLIGHTED CARD -->
-            <div class="project-card active">
-                <div class="project-image">
-                    <img src="BuildATycoon.webp" alt="Build a Tycoon">
+    <main>
+        <header class="landing">
+            <div class="landing-text">
+                <div class="glow">
+                    <h1 class="title">
+                        Roblox<br />
+                        <span>Scripting Services</span>
+                    </h1>
+                    <p class="username">@liquidpane</p>
                 </div>
 
-                <h3>Build a Tycoon</h3>
-                <p>
-                    An incremental sandbox tycoon/factory game. I have made this game
-                    completely myself. It has around 20,000 lines of code. At the time
-                    of writing this, it sits at 2.5 million visits.
-                </p>
-            </div>
-
-            <!-- NORMAL CARD -->
-            <div class="project-card">
-                <div class="project-video">
-                    <iframe src="https://www.youtube.com/embed/xOu6N6HUgDE?rel=0&modestbranding=1"
-                        allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen>
-                    </iframe>
+                <div class="arrow-button-holder">
+                    <button class="arrow-button" id="scrollToProjects" aria-label="Scroll to projects">
+                        <img src="arrow.png" alt="" />
+                    </button>
                 </div>
-
-                <h3>Lorem Ipsum</h3>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae
-                    pellentesque sem placerat. In id cursus mi pretium tellus duis convallis.
-                    Tempus leo eu aenean sed
-                    diam urna tempor.
-                </p>
             </div>
+        </header>
 
-        </div>
-    </section>
+        <section class="projects" id="projects">
+            <div class="projects-grid">
+                <article class="project-card active">
+                    <div class="project-image">
+                        <img src="BuildATycoon.webp" alt="Build a Tycoon game preview" loading="lazy" />
+                    </div>
+
+                    <h3>Build a Tycoon</h3>
+                    <p>
+                        An incremental sandbox tycoon/factory game. I have made this game
+                        completely myself. It has around 20,000 lines of code. At the time
+                        of writing this, it sits at 2.5 million visits.
+                    </p>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-video">
+                        <iframe src="https://www.youtube.com/embed/xOu6N6HUgDE?rel=0&modestbranding=1"
+                            title="Project video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen
+                            loading="lazy"></iframe>
+                    </div>
+
+                    <h3>Lorem Ipsum</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+                        faucibus ex sapien vitae pellentesque sem placerat. In id cursus
+                        mi pretium tellus duis convallis. Tempus leo eu aenean sed diam
+                        urna tempor.
+                    </p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document
+            .getElementById("scrollToProjects")
+            .addEventListener("click", () => {
+                document
+                    .getElementById("projects")
+                    .scrollIntoView({ behavior: "smooth" });
+            });
+    </script>
 </body>
 
 </html>
-
