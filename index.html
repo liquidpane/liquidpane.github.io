@@ -4,80 +4,65 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LiquidPane Portfolio</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <title>LiquidPane's Portfolio</title>
 
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <main>
-        <header class="landing">
-            <div class="landing-text">
-                <div class="glow">
-                    <h1 class="title">
-                        Roblox<br />
-                        <span>Scripting Services</span>
-                    </h1>
-                    <p class="username">@liquidpane</p>
-                </div>
+    <h1>LiquidPane</h1>
+    <h2>6 years of experience in roblox-luau</h2>
 
-                <div class="arrow-button-holder">
-                    <button class="arrow-button" id="scrollToProjects" aria-label="Scroll to projects">
-                        <img src="Arrow.webp" alt="" />
-                    </button>
-                </div>
-            </div>
-        </header>
+    <div class="summary">
+        <div class="summary-item">Roblox Gameplay & Systems Developer</div>
+        <div class="summary-item">6+ Years Luau Experience</div>
+        <div class="summary-item">Large-Scale Systems</div>
+        <div class="summary-item">4.3M+ Visits Solo Project</div>
+    </div>
 
-        <section class="projects" id="projects">
-            <div class="projects-grid">
-                <article class="project-card active">
-                    <div class="project-image">
-                        <img src="BuildATycoon.webp" alt="Build a Tycoon game preview" loading="lazy" />
-                    </div>
+    <p>
+        Hello! I'm Liquid, a Roblox scripter based in the
+        <span class="highlight">Czech Republic (GMT+1)</span>.
+        I have over six years of professional experience developing gameplay systems
+        and full game projects using Luau.
+    </p>
 
-                    <h3>Build a Tycoon</h3>
-                    <p>
-                        An incremental sandbox tycoon/factory game. I have made this game
-                        completely myself. It has around 20,000 lines of code. At the time
-                        of writing this, it sits at 2.5 million visits.
-                    </p>
-                </article>
+    <p>
+        I have completed numerous commissions and contributed to a wide variety of projects,
+        ranging from small gameplay features to large-scale systems.
+        I have also developed solo projects, including
+        <span class="highlight">Build a Tycoon</span> (recently bought by Rebirthius),
+        which has reached over
+        <span class="highlight">4.3 million visits</span>
+        as of January 14, 2026.
+    </p>
 
-                <article class="project-card">
-                    <div class="project-video">
-                        <iframe src="https://www.youtube.com/embed/xOu6N6HUgDE?rel=0&modestbranding=1"
-                            title="Project video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen
-                            loading="lazy"></iframe>
-                    </div>
+    <p>
+        I am able to adapt to existing codebases and frameworks, or introduce my own when appropriate.
+        I am experienced with <span class="highlight">OOP</span> and
+        <span class="highlight">ECS</span>,
+        though I generally favor more clean and simple architectures.
+    </p>
 
-                    <h3>Lorem Ipsum</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
-                        faucibus ex sapien vitae pellentesque sem placerat. In id cursus
-                        mi pretium tellus duis convallis. Tempus leo eu aenean sed diam
-                        urna tempor.
-                    </p>
-                </article>
-            </div>
-        </section>
-    </main>
+    <p>
+        I work comfortably in professional development environments and large codebases.
+        I primarily work with traditional Roblox UI and gameplay scripting,
+        and prefer imperative approaches over declarative UI libraries such as React or Fusion.
+    </p>
 
-    <script>
-        document
-            .getElementById("scrollToProjects")
-            .addEventListener("click", () => {
-                document
-                    .getElementById("projects")
-                    .scrollIntoView({ behavior: "smooth" });
-            });
-    </script>
+    <div class="actions">
+        <a href="https://www.roblox.com/games/95090872663449/Build-a-Tycoon" target="_blank" class="action-button">
+            Build a Tycoon
+        </a>
+
+        <a href="https://paste-bin.org/yg27ljjgpa" target="_blank" class="action-button">
+            Trinket Stealing System
+        </a>
+
+        <a href="https://paste-bin.org/wws9oxoeij" target="_blank" class="action-button">
+            Building System
+        </a>
+    </div>
 </body>
 
 </html>
-
-
